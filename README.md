@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# NearMe
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+NearMe is a web application that allows users to post pin point adverts on an interactive map user interface in three different categories: pick-up sport games, real estate/open-houses, and garage sales. 
 
 ## Available Scripts
 
