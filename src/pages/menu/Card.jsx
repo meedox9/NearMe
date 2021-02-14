@@ -8,7 +8,7 @@ function Card(props) {
       style={{ textDecoration: "none", color: "black" }}
       to={"/" + props.page}
     >
-      <div className="card" component={Link} to={"/" + props.page}>
+      <div className="card">
         <img src={props.src} alt="" />
         <div className="card_body">
           <h2>{props.title}</h2>
