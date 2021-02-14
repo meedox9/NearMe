@@ -1,9 +1,12 @@
 import React from "react";
+import Maps from "./../../Maps";
+import Header from "./../menu/Header";
 
 function Callup() {
   return (
     <div className="">
-      <h1>Call up main page</h1>
+      <Header />
+      <Maps />
     </div>
   );
 }
