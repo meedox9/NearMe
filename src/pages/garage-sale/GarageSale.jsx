@@ -1,9 +1,11 @@
 import React from "react";
-
+import Maps from "./../../Maps";
+import Header from "./../menu/Header";
 function GarageSale() {
   return (
     <div className="">
-      <h1>Garage Sale main page</h1>
+      <Header />
+      <Maps />
     </div>
   );
 }
