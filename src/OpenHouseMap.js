@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import './css/Maps.css';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
-import SoccerIcon from "./images/icons/soccer.png";
-import BasketballIcon from "./images/icons/Basketball.png";
-import HockeyIcon from "./images/icons/Hockey.png";
-import VolleyballIcon from "./images/icons/Volleyball.png";
-import FootballIcon from "./images/icons/Football.png";
-import Court from "./images/icons/court.jpg";
-
-
+import Brick from "./images/icons/brick.png";
+import Castle from "./images/icons/castle.png";
+import HockeyIcon from "./images/icons/threeBed.png";
+import Tower from "./images/icons/tower.png";
+import Three from "./images/icons/Three.png";
+import cas from "./images/icons/cas.png";
+import brickHome from "./images/icons/brickHome.png";
 
 class Maps extends Component {
   state = {
@@ -51,21 +50,36 @@ class Maps extends Component {
 
         <Marker
           icon ={HockeyIcon}
-          name="Basktball Game"
+          name="Duplex Home"
+          desc="4 Bedroom, 4 Bath Dubplex for sale"
+          pic={Three}
           onClick={this.onMarkerClick}
           position={{ lat: 37.778519, lng: -122.40564 }}
         />
 
         <Marker
-          icon ={FootballIcon}
-          name="SOMA"
+          icon ={Brick}
+          name="2 Floor House"
+          desc="Open house for a beatuiful family home"
+          pic={brickHome}
           onClick={this.onMarkerClick}
-          position={{ lat: 37.738519, lng: -122.45564 }}
+          position={{ lat: 37.738519, lng: -122.43564 }}
         />
 
         <Marker
-          icon ={BasketballIcon}
-          name="Basktball Game"
+          icon ={Tower}
+          name="Twin Tower Appartments"
+          desc="Modern apartment open house"
+          pic={brickHome}
+          onClick={this.onMarkerClick}
+          position={{ lat: 37.738519, lng: -122.41564 }}
+        />
+
+        <Marker
+          icon ={Castle}
+          name="Castle Home"
+          desc="Antique castle home for viewing"
+          pic={cas}
           onClick={this.onMarkerClick}
           position={{ lat: 37.759703, lng: -122.428093 }}
         />
@@ -76,8 +90,8 @@ class Maps extends Component {
           visible={this.state.showingInfoWindow}>
           <div>
             <h1>{this.state.selectedPlace.name}</h1>
-            <h2>4 players required</h2>
-            <img src={Court} width="200" height="100" />
+            <h3>{this.state.selectedPlace.desc}</h3>
+            <img src={this.state.selectedPlace.pic} width="200" height="100" />
           </div>
         </InfoWindow>
       </Map>

@@ -1,5 +1,5 @@
 import React from "react";
-import Maps from "./../../Maps";
+import CallupMap from "../../CallupMap";
 import Header from "./../menu/Header";
 import "./../../css/SearchInput.css";
 
@@ -8,7 +8,7 @@ function Callup() {
     <div className="">
       <Header />
       <div>
-        <Maps></Maps>
+        <CallupMap></CallupMap>
         <div className="inner">
           <form>
             <input type="text" name="search" placeholder="Search.." />

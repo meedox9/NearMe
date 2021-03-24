@@ -1,5 +1,5 @@
 import React from "react";
-import Maps from "./../../Maps";
+import OpenHouseMap from "./../../OpenHouseMap";
 import Header from "./../menu/Header";
 import "./../../css/SearchInput.css";
 
@@ -8,7 +8,7 @@ function OpenHouse() {
     <div className="">
       <Header />
       <div>
-        <Maps></Maps>
+        <OpenHouseMap></OpenHouseMap>
         <div className="inner">
           <form>
             <input type="text" name="search" placeholder="Search.." />

@@ -1,5 +1,5 @@
 import React from "react";
-import Maps from "./../../Maps";
+import GarageSaleMap from "./../../GarageSaleMap";
 import Header from "./../menu/Header";
 import "./../../css/SearchInput.css";
 
@@ -8,7 +8,7 @@ function GarageSale() {
     <div className="">
       <Header />
       <div>
-        <Maps></Maps>
+        <GarageSaleMap></GarageSaleMap>
         <div className="inner">
           <form>
             <input type="text" name="search" placeholder="Search.." />
