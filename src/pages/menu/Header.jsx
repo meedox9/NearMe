@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import Logo from "./../../images/Logo.png";
+import Logo from "../../images/Logo.png";
 import InfoIcon from "@material-ui/icons/Info";
 import { IconButton } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
