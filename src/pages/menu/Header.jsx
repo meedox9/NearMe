@@ -16,12 +16,16 @@ function Header() {
       </Link>
 
       <img className="header_logo" src={Logo} alt="" />
-
+      <div id="list-item"> 
       <Link style={{ textDecoration: "none", color: "black" }} to={"/profile"}>
         <IconButton style={{ color: "#E1373D" }}>
           <AccountCircleIcon style={{ fontSize: 40 }} className="header_icon" />
         </IconButton>
       </Link>
+      <p>
+      <Link to="/login">Logout</Link>
+      </p>
+      </div>
     </div>
   );
 }
