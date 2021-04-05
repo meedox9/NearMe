@@ -1,19 +1,19 @@
 import React from "react";
-import Maps from "./../../Maps";
+import GarageSaleMap from "./../../GarageSaleMap";
 import Header from "./../menu/Header";
 import "./../../css/SearchInput.css";
+import "./Map.css";
+import Navbar from "./../../Navbar";
+import Card from "./../menu/Card";
 
 function GarageSale() {
   return (
-    <div className="">
-      <Header />
-      <div>
-        <Maps></Maps>
-        <div className="inner">
-          <form>
-            <input type="text" name="search" placeholder="Search.." />
-          </form>
-        </div>
+    <div className="mainContainer">
+      <div className="headerBox">
+        <Header />
+      </div>
+      <div className="container2">
+        <GarageSaleMap />
       </div>
     </div>
   );

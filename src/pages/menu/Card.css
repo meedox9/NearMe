@@ -31,6 +31,7 @@
 .card_body>h2 {
     font-size: 18px;
     font-weight: 600;
+    text-align: center;
 }
 
 .card_body>h4 {
@@ -38,4 +39,5 @@
     font-weight: 300;
     margin-top: 8px;
     margin-bottom: 8px;
+    text-align: center;
 }

@@ -1,0 +1,87 @@
+.mainHuncho{
+    display: flex;
+    flex-direction: row;
+}
+.inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+
+}
+
+.mapBox1 {
+    flex: 1;
+    height: 865px;
+    overflow: auto;
+}
+
+.mapBox2 {
+    width: 600px;
+    overflow: auto;
+    flex: 2;
+}
+
+.inputFade {
+    width: 150px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('./../images/search.png');
+    background-size: 24px, 24px;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+}
+
+.inputFade:focus {
+    width: 80%;
+}
+
+.autocomplete-dropdown-container
+{
+    color: white;
+    font-weight: bold;
+}
+
+.addButton{
+      background-color: #E1373D;
+      border: none;
+      color: white;
+      padding-left: 13px;
+      padding-right: 13px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 50px;
+      font-weight: bold;
+      margin: 5px 5px;
+      cursor: pointer;
+      border-radius: 50%;
+      /* top: 650px;
+      right: 400px;
+      position: relative; */
+}
+
+.how :hover {
+    background-color: #FFBE58;
+}
+
+.innerBox1 {
+align-self: center;
+}
+
+.innerBox2 {
+display: flex;
+flex-direction: column;
+align-self: center;
+}
+.innerBox2-1{
+    align-self: center;
+}
