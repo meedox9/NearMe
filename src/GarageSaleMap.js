@@ -1,4 +1,4 @@
-import React, { Component, setState, useState } from "react";
+import React, { Component} from "react";
 import "./css/Maps.css";
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
 import Sale from "./images/icons/sale.png";
@@ -17,7 +17,6 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import DeckIcon from "@material-ui/icons/Deck";
@@ -176,18 +175,8 @@ class Maps extends Component {
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtlcbH_klvsg3ffoVE_6H2tylL4UxtatI&libraries=places"></script>
         <div className="mainHuncho">
           <div className="mapBox1">
-            <InfoWindow
-              onClose={this.closeIt}
-              visible={this.state.showingAdInfo}
-            >
-              <div>
-                <button onClick={this.closeIt}>close</button>
-                <div id="results" className="">
-                  Some Results
-                </div>
-              </div>
-            </InfoWindow>
             {this.state.activeAds.map((ad) => (
+              
               <button
                 style={{ textDecoration: "none", color: "black" }}
                 onClick={this.showInfo}
@@ -334,7 +323,7 @@ class Maps extends Component {
                   >
                     {(close) => (
                       <div className="modal">
-                        <button className="close" onClick={close}>
+                        <button onClick={()=> console.log("clicked")} className="close" onClick={close}>
                           &times;
                         </button>
                         <div className="header"> Post New Ad</div>
