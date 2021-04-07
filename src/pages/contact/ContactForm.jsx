@@ -1,86 +1,102 @@
 import React from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import "./Contact.css";
-import Header from "./../menu/Header";
+
+import { Link } from "react-router-dom";
+
+import SupportPic from "./../../images/contactimage.png";
+import SuccessPic from "./../../images/successful.png";
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xdoyozwa");
   if (state.succeeded) {
     return (
-      <p>
-        Thank you for your feedback! We will take the time to asses your request
-        and get back to you as soon as possible
-      </p>
+      <div>
+        <br/><br/><br/>
+        <br/><br/><br/>
+        <img src={SuccessPic} alt="IMG" style={{height:"90%"}}/>
+
+        <br/><br/><br/>
+        <div style={{display: "flex", alignItems:"center", justifyContent:"center"}}>
+          <Link
+          style={{ textDecoration: "none", color: "black" }}
+          to={"/"}>
+          <button className="contact1-form-btn">
+                  <span>
+                      Go Back Home
+                    <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+                  </span>
+          </button>
+          </Link>
+        </div>
+      </div>
     );
   }
   return (
+    
     <div>
-      <Header />
-      <div className="hunchoMan">
-        <body style={{ background: "#E1373D" }}>
-          <div className="formShit">
-            <form onSubmit={handleSubmit}>
-              <div className="formDivs">
-                <label htmlFor="name">Name</label>
-                <br></br>
-                <input
-                  style={{ borderRadius: "10px" }}
-                  id="name"
-                  type="name"
-                  name="name"
-                />
-                <ValidationError
+      <div className="contact1">
+        <div className="container-contact1">
+          <div className="contact1-pic js-tilt" style={{objectFit:"cover"}}>
+            <img src={SupportPic} alt="IMG" />
+          </div>
+
+          <form className="contact1-form validate-form" onSubmit={handleSubmit}>
+            <span className="contact1-form-title">
+                    Enter Your Deets
+            </span>
+
+            <div className="wrap-input1 validate-input" data-validate = "Name is required">
+              <input className="input1" id="name" type="name" name="name" placeholder="Name" />
+              <ValidationError
                   prefix="Name"
                   field="name"
                   errors={state.errors}
                 />
-              </div>
-              <div className="formDivs">
-                <label htmlFor="email">Email Address</label>
-                <br></br>
-                <input
-                  style={{ borderRadius: "10px" }}
-                  id="email"
-                  type="email"
-                  name="email"
-                />
-                <ValidationError
+              <span className="shadow-input1"></span>
+            </div>
+
+            <div className="wrap-input1 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+              <input className="input1" id="email" type="email" name="email" placeholder="Email" />
+              <ValidationError
                   prefix="Email"
                   field="email"
                   errors={state.errors}
                 />
-              </div>
-              <div className="formDivs">
-                <label htmlFor="email">Describe The Issue</label>
-                <br></br>
-                <textarea
-                  style={{ borderRadius: "10px" }}
-                  id="message"
-                  name="message"
+              <span className="shadow-input1"></span>
+            </div>
+
+            <div className="wrap-input1 validate-input" data-validate = "Subject is required">
+              <input className="input1" id="subject" type="subject" name="subject" placeholder="Subject" />
+              <ValidationError
+                  prefix="Subject"
+                  field="subject"
+                  errors={state.errors}
                 />
-                <ValidationError
+              <span className="shadow-input1"></span>
+            </div>
+
+            <div className="wrap-input1 validate-input" data-validate = "Message is required">
+              <textarea className="input1" id="message" type="message" name="message" placeholder="Message"></textarea>
+              <ValidationError
                   prefix="Message"
                   field="message"
                   errors={state.errors}
                 />
-              </div>
-              <div className="formDivs">
-                <button
-                  style={{
-                    borderRadius: "10px",
-                    color: "white",
-                    background: "#FFBE58",
-                    fontWeight: "bold",
-                  }}
-                  type="submit"
-                  disabled={state.submitting}
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
-        </body>
+              <span className="shadow-input1"></span>
+            </div>
+
+            <div className="container-contact1-form-btn">
+              <button className="contact1-form-btn" type="submit"
+                disabled={state.submitting}>
+                <span>
+                    Send Email
+                  <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
