@@ -11,8 +11,9 @@ import NotFound from "./pages/404";
 import Menu from "./pages/menu/Menu";
 import OpenHouse from "./pages/open-house/OpenHouse";
 import GarageSale from "./pages/garage-sale/GarageSale";
-import Info from "./pages/info/Info.jsx";
-import Profile from "./pages/profile/profile.jsx";
+import Info from "./pages/info/Info";
+import Profile from "./pages/profile/profile";
+import Contact from "./pages/contact/Contact"
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route  exact path="/garage-sale" component={GarageSale} />
         <Route  exact path="/info" component={Info} />
         <Route  exact path="/profile" component={Profile} />
+        <Route  exact path="/support" component={Contact} />
         <Route  component={NotFound} />
       </Switch>
     </Router>

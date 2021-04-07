@@ -8,6 +8,14 @@ import Popup from "reactjs-popup";
 import "./css/SearchInput.css";
 import "./css/Popup.css";
 import "./pages/menu/Card.css";
+import Grid from '@material-ui/core/Grid';
+import DateFnsUtils from '@date-io/date-fns';
+import { useForm, ValidationError } from '@formspree/react';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
@@ -22,6 +30,9 @@ import Select from "@material-ui/core/Select";
 import DeckIcon from "@material-ui/icons/Deck";
 import AddIcon from "@material-ui/icons/Add";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
+import Banner from 'react-js-banner';
+
+
 
 Geocode.setApiKey("AIzaSyDtlcbH_klvsg3ffoVE_6H2tylL4UxtatI");
 Geocode.setLanguage("en");
@@ -40,7 +51,17 @@ const styles = {
 
 class Maps extends Component {
   state = {
-    activeAds: [],
+    banner1Css: { color: "#FFF", backgroundColor: "green" },
+    showBannerNow: false,
+    activeAds: [{
+              adTitle: "Woowski",
+              adLat: 47.542672,
+              adLng: -52.720892,
+              adDate: '',
+              adType: "Woowski",
+              adDesc: "Woowski",
+              adPostal: 'H8N 2B6',
+            }],
     activeMarker: {},
     selectedPlace: {},
     showingInfoWindow: false,
@@ -55,8 +76,10 @@ class Maps extends Component {
     listingType: "",
     listingDescription: "",
     listingPostalCode: "",
+    listingDate: "",
     pos: "",
     showingAdInfo: false,
+    showBannerTime: 0
   };
 
   closeIt = () => {
@@ -107,6 +130,7 @@ class Maps extends Component {
               adType: this.state.listingType,
               adDesc: this.state.listingDescription,
               adPostal: this.state.listingPostalCode,
+              adDate: this.state.listingDate
             },
           ]),
           currLats: lat,
@@ -144,10 +168,17 @@ class Maps extends Component {
   handleListingDesc = (e) => {
     this.setState({ listingDescription: e.target.value });
   };
+  handleListingDate = (e) => {
+    this.setState({ listingDate: e.target.value });
+  };
 
   showInfo = () => {
     this.setState({ showingAdInfo: true });
   };
+  handleDateChange=(e)=>{
+    this.setState({ selectedDate: e.target.value });
+    console.log(this.state.selectedDate);
+  }
 
   handleSelectSeacrh = (address) => {
     geocodeByAddress(address)
@@ -167,6 +198,7 @@ class Maps extends Component {
     );
   };
 
+
   render() {
     if (!this.props.loaded) return <div>Loading...</div>;
 
@@ -176,9 +208,10 @@ class Maps extends Component {
         <div className="mainHuncho">
           <div className="mapBox1">
             {this.state.activeAds.map((ad) => (
-              
-              <button
-                style={{ textDecoration: "none", color: "black" }}
+                  <Popup
+                    trigger={
+                      <ul><button
+                style={{ textDecoration: "none", color: "black", backgroundColor: "#FFBE58", border:"#FFBE58" }}
                 onClick={this.showInfo}
               >
                 <div className="card">
@@ -188,16 +221,72 @@ class Maps extends Component {
                     <h4>{ad.adDesc}</h4>
                   </div>
                 </div>
-              </button>
+              </button></ul>
+                    }
+                    modal
+                    nested
+                  >
+                    {(close) => (
+                      <div className="modal">
+                        <button onClick={()=> console.log("clicked")} className="close" onClick={close}>
+                          &times;
+                        </button>
+                        <div className="header"> Ad Info</div>
+                        <div className="content2">
+                          {" "}
+                            <div className="adInfoBigGuy">
+                              <div className="adInfo-box">
+                            <div  style={{background: "#E1373D", color:"white", borderRadius: "10px"}}><h1>{ad.adTitle}</h1></div>
+                                <img src={Garage} alt="" />
+                              </div>
+                             
+                            
+                            <div className="adInfo-box">
+                            <div style={{background: "#FFBE58", color:"white", borderRadius: "10px"}}><h3>Description</h3></div>
+                            <h4>{ad.adDesc}</h4>
+                            <div style={{background: "#FFBE58", color:"white", borderRadius: "10px"}}><h3>Event Type</h3></div>
+                            <h4>{ad.adType}</h4>
+                            <div style={{background: "#FFBE58", color:"white", borderRadius: "10px"}}><h3>Event Date</h3></div>
+                            <h4>{ad.adDate}</h4>
+                            </div>
+                            
+                            
+                            </div>
+                          <div className="contentBox2"></div>
+                        </div>
+                        <div className="actions">
+                          <Button
+                            onClick={() => {this.setState({
+                              showBannerNow:true,
+                              showBannerTime: 3000,
+      });
+    }}
+                            style={{
+                              ...styles.button,
+                            }}
+                          >
+                            {"Attend"}
+                          </Button>
+                        </div>
+                      </div>
+                    )}
+                  </Popup>
             ))}
           </div>
           <div className="mapBox2">
+            <Banner 
+  title="Event Registered Succesfully!" 
+  css={this.state.banner1Css} 
+  showBanner={this.state.showBannerNow}
+  visibleTime={this.state.showBannerTime}
+/>
+            
             <Map
               className=""
               google={this.props.google}
               onClick={this.onMapClicked}
               style={{ height: "100%", position: "relative", width: "100%" }}
-              containerStyle={{ height: "900px", width: "1190px" }}
+              containerStyle={{ height: "865px", width: "1190px" }}
               mapTypeControl={false}
               zoom={14}
               fullscreenControl={false}
@@ -261,6 +350,7 @@ class Maps extends Component {
                     src={this.state.selectedPlace.pic}
                     width="200"
                     height="100"
+                  alt=""
                   />
                 </div>
               </InfoWindow>
@@ -359,14 +449,14 @@ class Maps extends Component {
                                     <MenuItem value="">
                                       <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value="memro">
+                                    <MenuItem value="Collectables">
                                       <MonetizationOnIcon></MonetizationOnIcon>
                                       Collectables
                                     </MenuItem>
-                                    <MenuItem value="furniture">
+                                    <MenuItem value="Furniture">
                                       <DeckIcon></DeckIcon> Furniture
                                     </MenuItem>
-                                    <MenuItem value="other">
+                                    <MenuItem value="Other">
                                       <AddIcon></AddIcon> Other
                                     </MenuItem>
                                   </Select>
@@ -391,6 +481,27 @@ class Maps extends Component {
                                 onChange={this.handleListingPostalCode}
                                 variant="outlined"
                               />
+                            </div>
+                            <div className="formInput">
+                              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <Grid container justify="space-around">
+        <form className="" noValidate>
+      <TextField
+        id="date"
+        label="Event Date"
+        type="date"
+        defaultValue="2017-05-24"
+        className=""
+        InputLabelProps={{
+          shrink: true,
+        }}
+        value={this.state.listingDate}
+        onChange={this.handleListingDate}
+      />
+    </form>
+        
+      </Grid>
+    </MuiPickersUtilsProvider>
                             </div>
                           </form>
                           <div className="contentBox2"></div>
