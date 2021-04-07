@@ -4,8 +4,6 @@ import Header from "./../menu/Header";
 import "./../../css/SearchInput.css";
 import "./Map.css";
 
-import Footer from "./../menu/Footer";
-
 function GarageSale() {
   return (
     <div className="mainContainer">

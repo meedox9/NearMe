@@ -23,7 +23,7 @@
 .mapBox2 {
     width: 600px;
     overflow: auto;
-    flex: 2;
+    flex: 3;
 }
 
 .inputFade {
