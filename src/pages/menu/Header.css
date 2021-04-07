@@ -5,14 +5,19 @@
     z-index: 100;
     border-bottom: 1px solid lightgray;
     background-color: white;
+    text-align: center;
 }
 
 .header_logo {
     object-fit: contain;
     height: 100px;
+    text-align: center;
+
 }
 
 .header_icon {
     align-self: center;
     padding: 10px;
+    text-align: center;
+
 }

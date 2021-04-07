@@ -1,7 +1,7 @@
 import React from "react";
-import "./Menu.css";
 import Header from "./Header";
 import Card from "./Card";
+import "./Menu.css";
 
 function Menu() {
   return (

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './css/Maps.css';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import Brick from "./images/icons/brick.png";
 import Castle from "./images/icons/castle.png";
@@ -8,6 +7,7 @@ import Tower from "./images/icons/tower.png";
 import Three from "./images/icons/Three.png";
 import cas from "./images/icons/cas.png";
 import brickHome from "./images/icons/brickHome.png";
+import './css/Maps.css';
 
 class Maps extends Component {
   state = {

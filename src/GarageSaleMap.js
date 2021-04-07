@@ -5,9 +5,7 @@ import Sale from "./images/icons/sale.png";
 import Garage from "./images/icons/garage.png";
 import Geocode from "react-geocode";
 import Popup from "reactjs-popup";
-import "./css/SearchInput.css";
-import "./css/Popup.css";
-import "./pages/menu/Card.css";
+
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import { useForm, ValidationError } from '@formspree/react';
@@ -32,7 +30,9 @@ import AddIcon from "@material-ui/icons/Add";
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import Banner from 'react-js-banner';
 
-
+import "./pages/menu/Card.css";
+import "./css/SearchInput.css";
+import "./css/Popup.css";
 
 Geocode.setApiKey("AIzaSyDtlcbH_klvsg3ffoVE_6H2tylL4UxtatI");
 Geocode.setLanguage("en");

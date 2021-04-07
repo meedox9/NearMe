@@ -27,6 +27,7 @@
   /* Some left and right padding inside the container */
   .container {
     padding: 0 20px;
+    text-align: center;
   }
   
   /* Clear floats */
