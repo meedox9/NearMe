@@ -14,6 +14,7 @@ import GarageSale from "./pages/garage-sale/GarageSale";
 import Info from "./pages/info/Info";
 import Profile from "./pages/profile/profile";
 import Contact from "./pages/contact/Contact"
+import SignIn from "./SignInScreen"
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
     <div className="App">
     <Router>
       <Switch>
-        <Route  exact path="/" component={Menu} />
+        <Route  exact path="/" component={SignIn} />
+        <Route  exact path="/menu" component={Menu} />
         <Route  exact path="/callup" component={Callup} />
         <Route  exact path="/open-house" component={OpenHouse} />
         <Route  exact path="/garage-sale" component={GarageSale} />

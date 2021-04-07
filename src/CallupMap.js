@@ -402,7 +402,7 @@ class Maps extends Component {
               google={this.props.google}
               onClick={this.onMapClicked}
               style={{ height: "100%", position: "relative", width: "100%" }}
-              containerStyle={{ height: "865px", width: "1400px" }}
+              containerStyle={{ height: "88%", maxWidth: "75%" }}
               mapTypeControl={false}
               zoom={14}
               fullscreenControl={false}
